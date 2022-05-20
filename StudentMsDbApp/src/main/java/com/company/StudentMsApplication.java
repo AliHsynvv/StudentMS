@@ -1,11 +1,14 @@
 package com.company;
 
 import com.company.dao.inter.ScoreScienceRepositoryCustomInter;
+import com.company.dao.inter.TeacherRepositoryCustomInter;
 import com.company.dao.repository.ScoreScienceRepository;
 import com.company.entity.ScoreScience;
 import com.company.entity.Student;
+import com.company.entity.Teacher;
 import com.company.service.inter.ScoreScienceServiceInter;
 import com.company.service.inter.StudentServiceInter;
+import com.company.service.inter.TeacherServiceInter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.CommandLineRunner;
@@ -21,7 +24,8 @@ public class StudentMsApplication {
     private StudentServiceInter studentServiceInter;
     @Autowired
     private ScoreScienceServiceInter scoreScienceServiceInter;
-
+    @Autowired
+    private TeacherServiceInter teacherServiceInter;
 
     public static void main(String[] args) {
         SpringApplication.run(StudentMsApplication.class, args);
@@ -32,14 +36,15 @@ public class StudentMsApplication {
         CommandLineRunner clr = new CommandLineRunner() {
             @Override
             public void run(String[] args) {
-//                Student ss = studentServiceInter.getByNameAndSurnameAndClazz("Qalib", "Huseynov", 9);
-//                List<ScoreScience> list = scoreScienceServiceInter.findScoreScienceByStudentId(ss.getId());
-//                for (ScoreScience s : list) {
-//                    System.out.println(s.getStudentByStudentId().getName() + "\n" + s.getScienceByScienceId().getName() + ":" + s.getScore());
-//                }
-                ScoreScience s = scoreScienceServiceInter.findScoreScienceByStudentIdAndScienceId(1, 1);
-                s.setScore("12");
-                scoreScienceServiceInter.updateScore(s);
+                Student s = studentServiceInter.getByNameAndSurnameAndClazz("Aliakbar", "Huseynov", 11);
+                List<ScoreScience> list = scoreScienceServiceInter.findScoreScienceByStudentId(s.getId());
+                System.out.println(s.getName() + "\n" + "Teacher:" + s.getTeacherByTeacherId().getName());
+
+                for (ScoreScience sc : list) {
+                    System.out.println(sc.getScienceByScienceId().getName() + ":" + sc.getScore()
+                    );
+                }
+
             }
         };
         return clr;

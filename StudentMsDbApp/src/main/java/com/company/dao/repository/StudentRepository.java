@@ -15,4 +15,5 @@ public interface StudentRepository extends JpaRepository<Student, Long> {
     List<Student> getAllByNameAndSurnameAndClazz(String name, String surname, int clazz);
 
     Student removeById(int id);
+
 }

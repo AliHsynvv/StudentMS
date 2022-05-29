@@ -27,7 +27,7 @@ public class TeacherRepositoryCustomImpl implements TeacherRepositoryCustomInter
     @Override
     public boolean updateTeacher(Teacher t) {
         t.setPassword(crypt.encode(t.getPassword()));
-        em.persist(t);
+        em.merge(t);
         return true;
     }
 }

@@ -10,10 +10,10 @@ import java.util.List;
 public interface StudentRepository extends JpaRepository<Student, Long> {
     Student getById(int id);
 
-    Student getByNameAndSurnameAndClazz(String name, String surname, int clazz);
-
-    List<Student> getAllByNameAndSurnameAndClazz(String name, String surname, int clazz);
-
     Student removeById(int id);
+
+    List<Student> findByNameAndSurname(String name, String surname);
+
+    Student findByName(String name);
 
 }

@@ -7,6 +7,8 @@ import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
+import java.util.List;
 
 @Repository
 public class StudentRepositoryCustomImpl implements StudentRepositoryCustomInter {
@@ -28,5 +30,30 @@ public class StudentRepositoryCustomImpl implements StudentRepositoryCustomInter
         s.setPassword(crypt.encode(s.getPassword()));
         em.merge(s);
         return true;
+    }
+
+    //jpql
+    @Override
+    public List<Student> getAll(String name, String surname) {
+        String jpql = "select s from Student s where 1=1";
+        if (name != null && !name.trim().isEmpty()) {
+            jpql += " and s.name=:name ";
+        }
+
+        if (surname != null && !surname.trim().isEmpty()) {
+            jpql += " and s.surname=:surname ";
+        }
+
+        Query query = em.createQuery(jpql, Student.class);
+
+        if (name != null && !name.trim().isEmpty()) {
+            query.setParameter("name", name);
+        }
+
+        if (surname != null && !surname.trim().isEmpty()) {
+            query.setParameter("surname", surname);
+        }
+
+        return query.getResultList();
     }
 }

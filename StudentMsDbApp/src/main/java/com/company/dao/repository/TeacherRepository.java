@@ -16,4 +16,6 @@ public interface TeacherRepository extends JpaRepository<Teacher, Long> {
     List<Teacher> getAllByNameAndSurname(String name, String surname);
 
     Teacher removeById(int id);
+
+    Teacher findByName(String name);
 }

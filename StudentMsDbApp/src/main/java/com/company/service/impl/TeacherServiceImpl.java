@@ -52,4 +52,9 @@ public class TeacherServiceImpl implements TeacherServiceInter {
     public Teacher removeById(int id) {
         return repository.removeById(id);
     }
+
+    @Override
+    public Teacher findByName(String name) {
+        return repository.findByName(name);
+    }
 }

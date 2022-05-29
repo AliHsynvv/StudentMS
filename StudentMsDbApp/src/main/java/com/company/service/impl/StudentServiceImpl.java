@@ -31,18 +31,23 @@ public class StudentServiceImpl implements StudentServiceInter {
     }
 
     @Override
+    public List<Student> getAll(String name, String surname) {
+        return service.getAll(name, surname);
+    }
+
+    @Override
     public Student getById(int id) {
         return repository.getById(id);
     }
 
     @Override
-    public List<Student> getAllByNameAndSurnameAndClazz(String name, String surname, int clazz) {
-        return repository.getAllByNameAndSurnameAndClazz(name, surname, clazz);
+    public Student findByName(String name) {
+        return repository.findByName(name);
     }
 
     @Override
-    public Student getByNameAndSurnameAndClazz(String name, String surname, int clazz) {
-        return repository.getByNameAndSurnameAndClazz(name,surname,clazz);
+    public List<Student> findByNameAndSurname(String name, String surname) {
+        return repository.findByNameAndSurname(name, surname);
     }
 
     @Override

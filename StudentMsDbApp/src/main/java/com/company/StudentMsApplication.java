@@ -36,14 +36,17 @@ public class StudentMsApplication {
         CommandLineRunner clr = new CommandLineRunner() {
             @Override
             public void run(String[] args) {
-                Student s = studentServiceInter.getByNameAndSurnameAndClazz("Aliakbar", "Huseynov", 11);
-                List<ScoreScience> list = scoreScienceServiceInter.findScoreScienceByStudentId(s.getId());
-                System.out.println(s.getName() + "\n" + "Teacher:" + s.getTeacherByTeacherId().getName());
+//                Student s = studentServiceInter.findByName("Aliakbar");
+//                List<ScoreScience> list = scoreScienceServiceInter.findScoreScienceByStudentId(s.getId());
+//                System.out.println(s.getName() + "\n" + "Teacher:" + s.getTeacherByTeacherId().getName());
+//
+//                for (ScoreScience sc : list) {
+//                    System.out.println(sc.getScienceByScienceId().getName() + ":" + sc.getScore()
+//                    );
+//                }
 
-                for (ScoreScience sc : list) {
-                    System.out.println(sc.getScienceByScienceId().getName() + ":" + sc.getScore()
-                    );
-                }
+                Student s = studentServiceInter.getById(1);
+                System.out.println(s.getName());
 
             }
         };

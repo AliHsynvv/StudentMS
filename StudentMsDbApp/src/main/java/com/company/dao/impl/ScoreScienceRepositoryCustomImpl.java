@@ -13,6 +13,7 @@ import java.util.List;
 public class ScoreScienceRepositoryCustomImpl implements ScoreScienceRepositoryCustomInter {
     @PersistenceContext
     EntityManager em;
+    //Native Query
 
     @Override
     public List<ScoreScience> findScoreScienceByStudentId(int student_id) {
@@ -22,6 +23,7 @@ public class ScoreScienceRepositoryCustomImpl implements ScoreScienceRepositoryC
         return list;
     }
 
+    //Native Query
     @Override
     public ScoreScience findScoreScienceByStudentIdAndScienceId(int science_id, int student_id) {
         Query query = em.createNativeQuery("select * from score_science where science_id=? and student_id=?", ScoreScience.class);

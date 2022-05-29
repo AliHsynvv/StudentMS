@@ -9,9 +9,9 @@ import java.util.List;
 public interface StudentServiceInter extends StudentRepositoryCustomInter {
     Student getById(int id);
 
-    List<Student> getAllByNameAndSurnameAndClazz(String name, String surname, int clazz);
+    Student findByName(String name);
 
-    Student getByNameAndSurnameAndClazz(String name, String surname, int clazz);
+    List<Student> findByNameAndSurname(String name, String surname);
 
     Student removeById(int id);
 }

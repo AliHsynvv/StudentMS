@@ -15,5 +15,6 @@ public interface TeacherServiceInter extends TeacherRepositoryCustomInter {
     List<Teacher> getAllByNameAndSurname(String name, String surname);
 
     Teacher removeById(int id);
+    Teacher findByName(String name);
 
 }

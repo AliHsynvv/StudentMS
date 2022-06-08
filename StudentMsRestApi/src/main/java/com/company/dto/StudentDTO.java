@@ -34,13 +34,6 @@ public class StudentDTO {
         }
         scienceDTO = list;
 
-//        List<UserSkillDTO> list = new ArrayList<>();
-//        List<UserSkill> userSkills = u.getSkills();
-//        for (int i = 0; i < userSkills.size(); i++) {
-//            UserSkill uSkill = userSkills.get(i);
-//            list.add(new UserSkillDTO(uSkill));
-//        }
-//        skills = list;
     }
 
     public String getPassword() {

@@ -1,10 +1,9 @@
-package com.company;
+package com.company.controller;
 
-import com.company.entity.Student;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 @Controller
-public class MyController {
+public class MainController {
     @GetMapping("")
     public String ShowMainMenu() {
         return "index";

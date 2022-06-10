@@ -7,7 +7,7 @@
 </head>
 <body>
 <div class="container-fluid ">
-    <div class="text-center">[[${pageTitle}]]</div>
+    <div style="size: 10px" class="text-center  ">[[${pageTitle}]]</div>
     <form th:action="@{/students/save}" method="post" th:object="${student}"
           style="max-width: 500px; margin:0 auto;">
         <div class="border border-secondary rounded p-3">
@@ -54,9 +54,6 @@
         window.location = "[[@{/students}]]";
     }
 
-    $(function () {
-        $('.selectpicker').selectpicker();
-    });
 </script>
 
 </body>

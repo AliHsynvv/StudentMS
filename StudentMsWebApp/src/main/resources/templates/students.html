@@ -8,9 +8,7 @@
 <body>
 <div class="container-fluid text-center">
     <h1>Manage Students</h1>
-    <div>
-        <a class="h3" th:href="@{/students/new}">Add New User</a>
-    </div>
+
 
     <div th:if="${message}" class="alert alert alert-success text-center">
         [[${message}]]
@@ -35,15 +33,23 @@
                     <td>[[${student.surname}]]</td>
                     <td>[[${student.clazz}]]</td>
                     <td>
-                        <a class="h4 mr-3" th:href="@{'/students/edit/' +${student.id}}">Edit</a>
-                        <a class="h4 mr-3" th:href="@{'/students/delete/'+${student.id}}">Delete</a>
+                        <button class="btn btn-success">
+                            <a style="font-size: small; color: white" class="h4 mr-3"
+                               th:href="@{'/students/edit/' +${student.id}}">Edit</a>
+                        </button>
+                        <button class="btn btn-danger m-0">
+                            <a style="font-size: small; color: white" class="h4 mr-3"
+                               th:href="@{'/students/delete/'+${student.id}}">Delete</a>
+                        </button>
+
                     </td>
                 </tr>
             </th:block>
-
-
         </table>
 
+        <div class="btn btn-success ">
+            <a style="font-size:medium ; color: white" class="h3" th:href="@{/students/new}">[[${pageTitle}]]</a>
+        </div>
 
     </div>
 

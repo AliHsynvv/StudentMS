@@ -1,4 +1,4 @@
-package com.company;
+package com.company.controller;
 
 import com.company.dao.impl.CountryRepositoryCustomImpl;
 import com.company.entity.Country;
@@ -8,10 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.List;
@@ -25,9 +22,12 @@ public class StudentController {
     String surname = null;
 
     @GetMapping("/students")
-    public String showStudentList(Model model) {
+    public String showStudentList(@RequestParam(value = "name", required = false) String name,
+                                  @RequestParam(value = "surname", required = false) String surname,
+                                  Model model) {
         List<com.company.entity.Student> listStudents = service.getAll(name, surname);
         model.addAttribute("listStudents", listStudents);
+        model.addAttribute("pageTitle", "Add new Student");
         return "students";
     }
 
@@ -48,7 +48,6 @@ public class StudentController {
 
     @GetMapping("/students/edit/{id}")
     public String editStudent(@PathVariable("id") int id, RedirectAttributes ra, Model model) {
-
         try {
             Student s = service.getById(id);
             model.addAttribute("student", s);

@@ -13,5 +13,4 @@ public interface StudentServiceInter extends StudentRepositoryCustomInter {
 
     List<Student> findByNameAndSurname(String name, String surname);
 
-    Student removeById(int id);
 }

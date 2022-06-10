@@ -32,6 +32,13 @@ public class StudentRepositoryCustomImpl implements StudentRepositoryCustomInter
         return true;
     }
 
+    @Override
+    public boolean removeStudent(int id) {
+        Student s = em.find(Student.class, id);
+        em.remove(s);
+        return true;
+    }
+
     //jpql
     @Override
     public List<Student> getAll(String name, String surname) {

@@ -9,5 +9,7 @@ public interface StudentRepositoryCustomInter {
 
     public boolean updateStudent(Student s);
 
-   public List<Student> getAll(String name, String surname);
+    public boolean removeStudent(int id);
+
+    public List<Student> getAll(String name, String surname);
 }

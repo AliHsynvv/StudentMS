@@ -27,10 +27,10 @@ public class Student {
     @OneToMany(mappedBy = "studentByStudentId")
     private List<ScoreScience> scoreSciencesById;
     @ManyToOne
-    @JoinColumn(name = "teacher_id", referencedColumnName = "id", nullable = false)
+    @JoinColumn(name = "teacher_id", referencedColumnName = "id", nullable = true)
     private Teacher teacherByTeacherId;
     @ManyToOne
-    @JoinColumn(name = "nationality_id", referencedColumnName = "id", nullable = false)
+    @JoinColumn(name = "nationality_id", referencedColumnName = "id", nullable = true)
     private Country countryByNationalityId;
 
     public int getId() {

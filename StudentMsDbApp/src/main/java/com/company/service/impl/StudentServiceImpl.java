@@ -31,6 +31,11 @@ public class StudentServiceImpl implements StudentServiceInter {
     }
 
     @Override
+    public boolean removeStudent(int id) {
+        return service.removeStudent(id);
+    }
+
+    @Override
     public List<Student> getAll(String name, String surname) {
         return service.getAll(name, surname);
     }
@@ -50,10 +55,5 @@ public class StudentServiceImpl implements StudentServiceInter {
         return repository.findByNameAndSurname(name, surname);
     }
 
-    @Override
-    public Student removeById(int id) {
-        return repository.removeById(id);
-
-    }
 
 }

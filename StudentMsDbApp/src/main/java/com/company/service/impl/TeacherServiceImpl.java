@@ -22,7 +22,6 @@ public class TeacherServiceImpl implements TeacherServiceInter {
     @Autowired
     private TeacherRepository repository;
 
-
     @Override
     public boolean addTeacher(Teacher t) {
         return repositoryCustomInter.addTeacher(t);

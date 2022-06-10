@@ -1,16 +1,13 @@
 package com.company;
 
-import com.company.dao.inter.ScoreScienceRepositoryCustomInter;
-import com.company.dao.inter.TeacherRepositoryCustomInter;
-import com.company.dao.repository.ScoreScienceRepository;
-import com.company.entity.ScoreScience;
+import com.company.dao.impl.CountryRepositoryCustomImpl;
+import com.company.dao.repository.StudentRepository;
+import com.company.entity.Country;
 import com.company.entity.Student;
-import com.company.entity.Teacher;
 import com.company.service.inter.ScoreScienceServiceInter;
 import com.company.service.inter.StudentServiceInter;
 import com.company.service.inter.TeacherServiceInter;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -25,7 +22,11 @@ public class StudentMsApplication {
     @Autowired
     private ScoreScienceServiceInter scoreScienceServiceInter;
     @Autowired
+    private StudentRepository repository;
+    @Autowired
     private TeacherServiceInter teacherServiceInter;
+    @Autowired
+    private CountryRepositoryCustomImpl countryRepository;
 
     public static void main(String[] args) {
         SpringApplication.run(StudentMsApplication.class, args);
@@ -36,18 +37,6 @@ public class StudentMsApplication {
         CommandLineRunner clr = new CommandLineRunner() {
             @Override
             public void run(String[] args) {
-//                Student s = studentServiceInter.findByName("Aliakbar");
-//                List<ScoreScience> list = scoreScienceServiceInter.findScoreScienceByStudentId(s.getId());
-//                System.out.println(s.getName() + "\n" + "Teacher:" + s.getTeacherByTeacherId().getName());
-//
-//                for (ScoreScience sc : list) {
-//                    System.out.println(sc.getScienceByScienceId().getName() + ":" + sc.getScore()
-//                    );
-//                }
-
-                Student s = studentServiceInter.getById(1);
-                System.out.println(s.getName());
-
             }
         };
         return clr;

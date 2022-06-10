@@ -37,6 +37,7 @@ public class StudentMsApplication {
         CommandLineRunner clr = new CommandLineRunner() {
             @Override
             public void run(String[] args) {
+
             }
         };
         return clr;

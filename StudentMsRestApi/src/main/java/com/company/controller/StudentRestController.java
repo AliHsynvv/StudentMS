@@ -39,7 +39,7 @@ public class StudentRestController {
     @DeleteMapping("/students/delete/{id}")
     public ResponseEntity<ResponseDTO> deleteStudents(@PathVariable("id") int id) {
         Student students = studentServiceInter.getById(id);
-        studentServiceInter.removeById(students.getId());
+        studentServiceInter.removeStudent(students.getId());
         return ResponseEntity.ok(ResponseDTO.of(new StudentDTO(students), "Succesfully deleted"));
     }
 
